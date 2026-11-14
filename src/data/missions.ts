@@ -1,0 +1,135 @@
+import { MissionDefinition } from '../types/game';
+
+export const MISSIONS: MissionDefinition[] = [
+  {
+    id: 'earth',
+    title: 'MISSION ALPHA: TERRA MONITOR',
+    subtitle: 'Earth Observation & Climate Science',
+    destination: 'Earth Sun-Synchronous Polar Orbit (705 km)',
+    distanceKm: 705,
+    commDelaySec: 0.1,
+    budgetAllowance: 1000000,
+    description:
+      'Deploy an advanced multi-spectral Earth Observation satellite to monitor global climate variables, atmospheric ozone, ocean surface heights, deforestation rates, and track potential Near-Earth Asteroid (NEO) hazards.',
+    primaryObjectives: [
+      'Design & assemble an Earth Observation satellite with adequate power and thermal balance.',
+      'Achieve stable Sun-Synchronous Polar Orbit at 705 km altitude.',
+      'Capture multi-spectral imaging scans of Earth biomes and ocean currents.',
+      'Collect atmospheric greenhouse gas & temperature profiles.',
+      'Detect and log Near-Earth Object (NEO) asteroid activity.',
+      'Downlink at least 150 MB of scientific telemetry to Earth Mission Control.',
+    ],
+    secondaryObjectives: [
+      'Maintain battery charge above 75% during eclipse phases.',
+      'Keep spacecraft core temperature between 15°C and 28°C.',
+      'Operate under budget with at least $150,000 credits remaining.',
+    ],
+    hazards: [
+      'Space debris collision risks in crowded Low Earth Orbit.',
+      'Eclipse thermal cycling (orbital night cooldown).',
+      'Atmospheric cloud cover occluding optical sensors.',
+      'Ground station line-of-sight communication blackout windows.',
+    ],
+    requiredInstruments: ['cam-multispectral-earth', 'sensor-atmospheric-sounder'],
+    minDeltaV: 4200,
+    iconName: 'Globe',
+  },
+  {
+    id: 'moon',
+    title: 'MISSION BETA: SELENE EXPEDITION',
+    subtitle: 'Lunar Surface Exploration & Soil Analysis',
+    destination: 'Moon - Shackleton Crater / South Pole (384,400 km)',
+    distanceKm: 384400,
+    commDelaySec: 1.3,
+    budgetAllowance: 1350000,
+    description:
+      'Journey to the Moon to investigate permanently shadowed craters for water ice deposits, analyze lunar regolith, and test landing or surface mobility systems. Choose between an autonomous Rover, precision Lander, or crewed Astronaut EVA Expedition.',
+    primaryObjectives: [
+      'Perform Trans-Lunar Injection (TLI) burn and lunar orbit insertion.',
+      'Complete descent and soft landing at target coordinates.',
+      'Investigate lunar regolith and drill core samples.',
+      'Deploy surface scientific instruments / ALSEP package.',
+      'Transmit high-definition lunar panoramas and mineral assay data.',
+    ],
+    secondaryObjectives: [
+      'Avoid high-angle boulder fields and craters during descent.',
+      'Complete lunar rover traverse of > 500 meters.',
+      'Maintain crew life support and suit consumables with > 30% margin.',
+    ],
+    hazards: [
+      'Abrasive electrostatic lunar dust adhering to solar panels and suit seals.',
+      'Extreme thermal contrast (-130°C in shadow to +120°C in sunlight).',
+      'High-velocity micrometeorite impacts.',
+      '1.3-second communication latency with Earth Mission Control.',
+    ],
+    requiredInstruments: ['cam-planetary-telephoto', 'sensor-asteroid-neo-surveyor'],
+    minDeltaV: 6800,
+    iconName: 'Moon',
+  },
+  {
+    id: 'mars',
+    title: 'MISSION GAMMA: ARES PIONEER',
+    subtitle: 'Red Planet Exploration & Paleolake Search',
+    destination: 'Mars - Jezero Crater Paleolake (225,000,000 km)',
+    distanceKm: 225000000,
+    commDelaySec: 780, // ~ 13 minutes
+    budgetAllowance: 1750000,
+    description:
+      'Execute an interplanetary trajectory to Mars to search for ancient biosignatures, examine sedimentary delta rocks, study seasonal methane spikes, and withstand the punishing Martian dust storms.',
+    primaryObjectives: [
+      'Execute interplanetary Hohmann transfer burn from Earth to Mars.',
+      'Survive atmospheric entry, descent, and landing (EDL "7 Minutes of Terror").',
+      'Deploy Martian surface rover or orbiter science suite.',
+      'Drill sedimentary rock samples and analyze organic carbon signatures.',
+      'Measure vertical atmospheric dust profile and methane concentrations.',
+      'Buffer and transmit 300+ MB of high-value science telemetry across deep space.',
+    ],
+    secondaryObjectives: [
+      'Survive a regional dust storm by entering low-power hibernation.',
+      'Manage long communication delay (13 min one-way) through autonomous commands.',
+      'Conserve battery reserves during night-time freeze (-80°C).',
+    ],
+    hazards: [
+      'Global planet-encircling dust storms reducing solar power by up to 75%.',
+      'Significant 13-minute one-way radio latency preventing real-time Earth piloting.',
+      'Atmospheric entry heating reaching 1,300°C.',
+      'Extreme cold nights freezing mechanical actuators and lubricants.',
+    ],
+    requiredInstruments: ['cam-planetary-telephoto', 'sensor-atmospheric-sounder'],
+    minDeltaV: 9200,
+    iconName: 'Flame',
+  },
+  {
+    id: 'sun',
+    title: 'MISSION DELTA: HELIOS SENTINEL',
+    subtitle: 'Extreme Solar Corona & Heliophysics Probe',
+    destination: 'Sun - Outer Corona Perihelion (6,900,000 km from Sun center)',
+    distanceKm: 149600000,
+    commDelaySec: 500, // ~ 8.3 minutes
+    budgetAllowance: 1900000,
+    description:
+      'Send an unmanned, heavily armored scientific probe through the outer atmosphere of the Sun to unlock the mysteries of coronal heating, solar wind acceleration, and coronal mass ejections. (NOTE: Unmanned probe only. Spacecraft must remain protected behind its carbon-composite heat shield at all times!).',
+    primaryObjectives: [
+      'Execute multi-gravity-assist trajectory to decelerate towards the inner solar system.',
+      'Keep the carbon-composite solar heat shield locked toward the Sun at perihelion.',
+      'Sample pristine solar wind plasma and coronal energetic particles.',
+      'Capture extreme-ultraviolet coronagraph images of solar flare eruptions.',
+      'Monitor magnetic field switchbacks and solar radio bursts.',
+      'Safely transmit heliophysics telemetry back to the Deep Space Network.',
+    ],
+    secondaryObjectives: [
+      'Prevent probe internal electronics from exceeding 45°C despite external 1,400°C heat.',
+      'Withstand solar radiation storms without memory upset.',
+      'Achieve record-breaking heliocentric velocity (> 400,000 km/h).',
+    ],
+    hazards: [
+      'Blistering heat flux exceeding 1,400°C (any shield misalignment causes instant probe destruction!).',
+      'Violent Coronal Mass Ejections (CMEs) creating relativistic proton radiation.',
+      'Severe solar radio interference blinding communication links.',
+      'Total ban on crewed flight: unmanned automated probe only.',
+    ],
+    requiredInstruments: ['cam-solar-coronagraph', 'sensor-solar-wind-analyzer', 'thermal-sun-shield-extreme'],
+    minDeltaV: 12500,
+    iconName: 'Sun',
+  },
+];
