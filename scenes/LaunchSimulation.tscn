@@ -1,0 +1,129 @@
+[gd_scene load_steps=2 format=3 uid="uid://c9x7v2m4q8p1b"]
+
+[ext_resource type="Script" path="res://scripts/simulation/LaunchSimulation.gd" id="1_ls"]
+
+[node name="LaunchSimulation" type="Node3D"]
+script = ExtResource("1_ls")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 28)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 20, 40, 20)
+light_energy = 2.0
+
+[node name="RocketPivot" type="Node3D" parent="."]
+
+[node name="LaunchPad" type="Node3D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="CountdownPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 25.0
+offset_right = 120.0
+offset_bottom = 85.0
+grow_horizontal = 2
+
+[node name="CountdownLbl" type="Label" parent="HUD/CountdownPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.2, 1)
+theme_override_font_sizes/font_size = 32
+text = "T-5"
+horizontal_alignment = 1
+
+[node name="TelemetryPanel" type="PanelContainer" parent="HUD"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 380.0
+offset_bottom = 180.0
+
+[node name="VBox" type="VBoxContainer" parent="HUD/TelemetryPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="Label" parent="HUD/TelemetryPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.8, 1, 1)
+text = "FLIGHT TELEMETRY & GUIDANCE"
+
+[node name="AltitudeLbl" type="Label" parent="HUD/TelemetryPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Altitude: 0.0 km"
+
+[node name="SpeedLbl" type="Label" parent="HUD/TelemetryPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Orbital Velocity: 0.00 km/s (0 km/h)"
+
+[node name="MaxQLbl" type="Label" parent="HUD/TelemetryPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "DYNAMIC PRESSURE: NOMINAL"
+
+[node name="StatusLbl" type="Label" parent="HUD/TelemetryPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 1, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "STATUS: COUNTDOWN"
+
+[node name="ControlsPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -180.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBox" type="VBoxContainer" parent="HUD/ControlsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="Label" parent="HUD/ControlsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+text = "FLIGHT CONTROLS"
+
+[node name="ThrottleLbl" type="Label" parent="HUD/ControlsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Throttle: 100% [W/S]"
+
+[node name="ThrottleSlider" type="HSlider" parent="HUD/ControlsPanel/VBox"]
+layout_mode = 2
+value = 100.0
+
+[node name="StageBtn" type="Button" parent="HUD/ControlsPanel/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "SEPARATE STAGE [SPACE]"
+
+[node name="HintPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -80.0
+offset_right = -360.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HintLbl" type="Label" parent="HUD/HintPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+text = "Systems are Go for Launch. Stand by for main engine ignition!"
+horizontal_alignment = 1
+autowrap_mode = 2

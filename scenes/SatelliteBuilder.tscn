@@ -1,0 +1,215 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3m7r2p8v1x9y"]
+
+[ext_resource type="Script" path="res://scripts/ui/SatelliteBuilder.gd" id="1_sb"]
+
+[node name="SatelliteBuilder" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sb")
+
+[node name="Cleanroom3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Cleanroom3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.8, 4.5)
+
+[node name="TurntableRoot" type="Node3D" parent="Cleanroom3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Cleanroom3D"]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 5, 8, 5)
+light_energy = 1.8
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cleanroom3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+light_color = Color(0.9, 0.95, 1, 1)
+light_energy = 2.5
+spot_range = 10.0
+spot_angle = 50.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="UI/TopBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -15.0
+offset_right = 400.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.3, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "SPACECRAFT CLEANROOM ASSEMBLY LAB"
+
+[node name="BudgetLbl" type="Label" parent="UI/TopBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -15.0
+offset_right = -20.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.3, 1, 0.4, 1)
+theme_override_font_sizes/font_size = 18
+text = "Remaining Budget: $2,500,000"
+horizontal_alignment = 2
+
+[node name="StatsPanel" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -340.0
+offset_top = 60.0
+offset_right = -15.0
+offset_bottom = 240.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="UI/StatsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="Label" parent="UI/StatsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+text = "SPACECRAFT DIAGNOSTICS"
+
+[node name="MassLbl" type="Label" parent="UI/StatsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Total Mass: 120.0 kg"
+
+[node name="PowerLbl" type="Label" parent="UI/StatsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Power: +0W / -15W (Net: -15W)"
+
+[node name="ThermalLbl" type="Label" parent="UI/StatsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Thermal Tolerance: 380 K"
+
+[node name="DiagnosticLbl" type="Label" parent="UI/StatsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.2, 1)
+theme_override_font_sizes/font_size = 12
+text = "PRE-FLIGHT: Missing Power & Antenna!"
+autowrap_mode = 2
+
+[node name="CustomizationDrawer" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -280.0
+offset_right = 420.0
+offset_bottom = 280.0
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/CustomizationDrawer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CategoryTabs" type="TabBar" parent="UI/CustomizationDrawer/VBox"]
+layout_mode = 2
+current_tab = 0
+tab_count = 7
+tab_0/title = "Body"
+tab_1/title = "Solar"
+tab_2/title = "Radio"
+tab_3/title = "Camera"
+tab_4/title = "Sensors"
+tab_5/title = "Battery"
+tab_6/title = "Thermal"
+
+[node name="Scroll" type="ScrollContainer" parent="UI/CustomizationDrawer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PartsContainer" type="VBoxContainer" parent="UI/CustomizationDrawer/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="EducationalTipPanel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -105.0
+offset_right = -360.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TipLbl" type="Label" parent="UI/EducationalTipPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = -15.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "[SCIENCE INSIGHT]: Rotate with Left Click. Zoom with Mouse Wheel. Install components to balance your satellite!"
+autowrap_mode = 2
+
+[node name="ProceedBtn" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -70.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "PROCEED TO ROCKET SELECTION →"
+
+[node name="BackBtn" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -115.0
+offset_right = -15.0
+offset_bottom = -80.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "← CHANGE MISSION"

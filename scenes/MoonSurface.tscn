@@ -1,0 +1,114 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx4m8k1v7q2p9"]
+
+[ext_resource type="Script" path="res://scripts/simulation/MoonSurface.gd" id="1_ms"]
+
+[node name="MoonSurface" type="Node3D"]
+script = ExtResource("1_ms")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3.2, 7.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 10, 20, 10)
+light_energy = 2.0
+
+[node name="TerrainRoot" type="Node3D" parent="."]
+
+[node name="ActorRoot" type="Node3D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HeaderPanel" type="Panel" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="TitleLbl" type="Label" parent="HUD/HeaderPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -15.0
+offset_right = 650.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "MOON EXPLORATION: LUNAR SURFACE OPERATIONS"
+
+[node name="ObjectivePanel" type="PanelContainer" parent="HUD"]
+offset_left = 20.0
+offset_top = 65.0
+offset_right = 520.0
+offset_bottom = 160.0
+
+[node name="ObjectiveLbl" type="Label" parent="HUD/ObjectivePanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+theme_override_font_sizes/font_size = 14
+text = "OBJECTIVE (1/4): Collect Lunar Regolith Soil Sample"
+autowrap_mode = 2
+
+[node name="StatsPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 65.0
+offset_right = -20.0
+offset_bottom = 140.0
+grow_horizontal = 0
+
+[node name="SamplesLbl" type="Label" parent="HUD/StatsPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 1, 0.4, 1)
+text = "Lunar Samples & Data: 0/4"
+
+[node name="ActionBtn" type="Button" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -140.0
+offset_right = 260.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Collect Lunar Soil Sample"
+
+[node name="CompleteBtn" type="Button" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -75.0
+offset_right = 260.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CONCLUDE LUNAR EXPEDITION →"
+
+[node name="LogPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -215.0
+offset_right = -20.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LogLbl" type="Label" parent="HUD/LogPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+text = "[LUNAR LOG]: Lander touched down safely in Descartes Crater. Low gravity (1.62 m/s²) verified."
+autowrap_mode = 2

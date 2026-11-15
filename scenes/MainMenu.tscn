@@ -1,0 +1,153 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8q1m4a7p0x2e"]
+
+[ext_resource type="Script" path="res://scripts/ui/MainMenu.gd" id="1_main"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="CelestialPivot" type="Node3D" parent="Environment"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 10, 10)
+light_energy = 1.5
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleBox" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 40.0
+offset_right = 350.0
+offset_bottom = 130.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/TitleBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/TitleBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "COSMIC HORIZONS"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="UI/TitleBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Realistic 3D Space Exploration & Science Simulation Game"
+horizontal_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 70.0
+offset_right = 160.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="MissionSelectBtn" type="Button" parent="UI/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "★ LAUNCH SPACE MISSIONS"
+
+[node name="BadgesBtn" type="Button" parent="UI/VBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "ACHIEVEMENTS & BADGES"
+
+[node name="ExitBtn" type="Button" parent="UI/VBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "EXIT GAME"
+
+[node name="BadgesPopup" type="Panel" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -220.0
+offset_right = 280.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UI/BadgesPopup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 15.0
+offset_right = 150.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+text = "MISSION ACHIEVEMENT BADGES"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="UI/BadgesPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 55.0
+offset_right = -20.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/BadgesPopup/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="CloseBtn" type="Button" parent="UI/BadgesPopup"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -45.0
+offset_right = 60.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CLOSE"

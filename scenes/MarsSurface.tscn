@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=3 uid="uid://df5k3n9p1v8q2"]
+
+[ext_resource type="Script" path="res://scripts/simulation/MarsSurface.gd" id="1_ms"]
+
+[sub_resource type="Sky" id="Sky_mars"]
+
+[sub_resource type="Environment" id="Environment_mars"]
+background_mode = 2
+sky = SubResource("Sky_mars")
+ambient_light_color = Color(0.85, 0.45, 0.25, 1)
+ambient_light_energy = 0.8
+fog_enabled = true
+fog_light_color = Color(0.8, 0.4, 0.2, 1)
+fog_density = 0.015
+
+[node name="MarsSurface" type="Node3D"]
+script = ExtResource("1_ms")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mars")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3.0, 7.0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 10, 25, 10)
+light_color = Color(1, 0.85, 0.7, 1)
+light_energy = 1.8
+
+[node name="TerrainRoot" type="Node3D" parent="."]
+
+[node name="RoverRoot" type="Node3D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HeaderPanel" type="Panel" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="HUD/HeaderPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -15.0
+offset_right = 650.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45, 0.2, 1)
+theme_override_font_sizes/font_size = 18
+text = "MARS ROBOTIC EXPLORATION: JEZERO CRATER RESEARCH"
+
+[node name="ObjectivePanel" type="PanelContainer" parent="HUD"]
+offset_left = 20.0
+offset_top = 65.0
+offset_right = 540.0
+offset_bottom = 160.0
+
+[node name="ObjectiveLbl" type="Label" parent="HUD/ObjectivePanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+theme_override_font_sizes/font_size = 14
+text = "MARS SCIENCE (1/5): Analyze Jezero Delta Rock with Laser Spectrometer"
+autowrap_mode = 2
+
+[node name="StatsPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -340.0
+offset_top = 65.0
+offset_right = -20.0
+offset_bottom = 140.0
+grow_horizontal = 0
+
+[node name="StormLbl" type="Label" parent="HUD/StatsPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 1, 0.4, 1)
+text = "ENVIRONMENT: CALM WINDS (12 km/h)"
+
+[node name="ActionBtn" type="Button" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -140.0
+offset_right = 260.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+text = "Fire SuperCam Laser Spectrometer"
+
+[node name="CompleteBtn" type="Button" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -75.0
+offset_right = 260.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "TRANSMIT MARS DATA & COMPLETE MISSION →"
+
+[node name="LogPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -215.0
+offset_right = -20.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LogLbl" type="Label" parent="HUD/LogPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+text = "[MARS LOG]: Rover sky-crane touchdown confirmed in Jezero Crater delta sediments."
+autowrap_mode = 2

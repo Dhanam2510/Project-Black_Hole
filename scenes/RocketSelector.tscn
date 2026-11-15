@@ -1,0 +1,164 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2k8n4x9q1v7p"]
+
+[ext_resource type="Script" path="res://scripts/ui/RocketSelector.gd" id="1_rs"]
+
+[node name="RocketSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rs")
+
+[node name="Preview3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Preview3D"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.5, 9.5)
+
+[node name="RocketTurntable" type="Node3D" parent="Preview3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Preview3D"]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 5, 10, 5)
+light_energy = 1.6
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="UI/TopBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -15.0
+offset_right = 400.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.3, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "ROCKET LAUNCH VEHICLE SELECTION"
+
+[node name="Drawer" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="UI/Drawer"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/Drawer/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="SpecsPanel" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -380.0
+offset_top = 65.0
+offset_right = -20.0
+offset_bottom = 340.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="UI/SpecsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLbl" type="Label" parent="UI/SpecsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_font_sizes/font_size = 18
+text = "Pegasus-9 Workhorse"
+
+[node name="DetailsLbl" type="Label" parent="UI/SpecsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Max Payload: 1,800 kg\nThrust: 7,600 kN\nStages: 2"
+
+[node name="CompatibilityLbl" type="Label" parent="UI/SpecsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 1, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "COMPATIBLE: Payload within envelope."
+autowrap_mode = 2
+
+[node name="EducationalTipPanel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -100.0
+offset_right = -400.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TipLbl" type="Label" parent="UI/EducationalTipPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = -15.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "[ROCKET AERODYNAMICS]: Compare rockets to ensure your payload fits within capacity!"
+autowrap_mode = 2
+
+[node name="LaunchBtn" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -380.0
+offset_top = -75.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "PROCEED TO LAUNCH PAD 🚀"
+
+[node name="BackBtn" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -380.0
+offset_top = -120.0
+offset_right = -20.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "← BACK TO VEHICLE CLEANROOM"

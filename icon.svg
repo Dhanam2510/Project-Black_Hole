@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#14223d"/>
+      <stop offset="100%" stop-color="#050813"/>
+    </radialGradient>
+    <linearGradient id="rocket" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <!-- Planet Orbit Ring -->
+  <ellipse cx="64" cy="64" rx="48" ry="18" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,4" transform="rotate(-25 64 64)"/>
+  <!-- Planet Body -->
+  <circle cx="42" cy="78" r="16" fill="#0284c7"/>
+  <circle cx="40" cy="76" r="14" fill="#38bdf8" opacity="0.6"/>
+  <!-- Rocket Body -->
+  <path d="M78 30 C88 40 92 56 88 66 L74 62 L66 48 C72 38 78 30 78 30 Z" fill="url(#rocket)"/>
+  <!-- Rocket Fin Left -->
+  <path d="M66 48 L56 54 L68 59 Z" fill="#3b82f6"/>
+  <!-- Rocket Fin Right -->
+  <path d="M74 62 L78 74 L84 65 Z" fill="#3b82f6"/>
+  <!-- Rocket Window -->
+  <circle cx="76" cy="48" r="3.5" fill="#0284c7"/>
+  <circle cx="77" cy="47" r="1" fill="#ffffff"/>
+  <!-- Thruster Flame -->
+  <path d="M68 62 L60 76 L73 66 Z" fill="url(#flame)"/>
+</svg>

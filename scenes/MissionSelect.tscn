@@ -1,0 +1,256 @@
+[gd_scene load_steps=2 format=3 uid="uid://df7k2m9b5x8u1"]
+
+[ext_resource type="Script" path="res://scripts/ui/MissionSelect.gd" id="1_ms"]
+
+[node name="MissionSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ms")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.05, 0.08, 1)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 30.0
+offset_right = 300.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "SELECT SPACE EXPLORATION MISSION"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -210.0
+offset_right = 560.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="EarthCard" type="PanelContainer" parent="UI/Grid"]
+custom_minimum_size = Vector2(260, 400)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/Grid/EarthCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="UI/Grid/EarthCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "MISSION 1: EARTH"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="UI/Grid/EarthCard/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 12
+text = "• Custom Satellite Engineering
+• Rocket Ascent & Staging
+• Climate & Cloud Monitoring
+• Weather & Storm Tracking
+• Asteroid Defense Radar
+
+Budget: $3,000,000"
+autowrap_mode = 2
+
+[node name="SelectBtn" type="Button" parent="UI/Grid/EarthCard"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "LAUNCH MISSION 1"
+
+[node name="MoonCard" type="PanelContainer" parent="UI/Grid"]
+custom_minimum_size = Vector2(260, 400)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/Grid/MoonCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="UI/Grid/MoonCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "MISSION 2: MOON"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="UI/Grid/MoonCard/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 12
+text = "• Choose Astronaut or Rover Mode
+• 1/6th Lunar Low-Gravity Walking
+• Ancient Regolith Rock Sampling
+• Passive Seismic Sensors
+• Lunar Surface Panoramas
+
+Budget: $4,000,000 - $6,000,000"
+autowrap_mode = 2
+
+[node name="SelectBtn" type="Button" parent="UI/Grid/MoonCard"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "LAUNCH MISSION 2"
+
+[node name="MarsCard" type="PanelContainer" parent="UI/Grid"]
+custom_minimum_size = Vector2(260, 400)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/Grid/MarsCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="UI/Grid/MarsCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45, 0.2, 1)
+theme_override_font_sizes/font_size = 18
+text = "MISSION 3: MARS"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="UI/Grid/MarsCard/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 12
+text = "• Jezero Crater Robotic Rover
+• Dynamic Martian Dust Storms
+• Laser Spectrometry on Rocks
+• Subsurface Ice Core Drilling
+• Future Human Habitation Assessment
+
+Budget: $5,500,000"
+autowrap_mode = 2
+
+[node name="SelectBtn" type="Button" parent="UI/Grid/MarsCard"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "LAUNCH MISSION 3"
+
+[node name="SunCard" type="PanelContainer" parent="UI/Grid"]
+custom_minimum_size = Vector2(260, 400)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/Grid/SunCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="UI/Grid/SunCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_font_sizes/font_size = 18
+text = "MISSION 4: SUN"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="UI/Grid/SunCard/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 12
+text = "• Parker-Style Solar Probe
+• Extreme Heat Shield Physics
+• Coronal Mass Ejections (CMEs)
+• UV & X-Ray Radiation Counters
+• Solar Wind Particle Flux Mapping
+
+Budget: $5,000,000"
+autowrap_mode = 2
+
+[node name="SelectBtn" type="Button" parent="UI/Grid/SunCard"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "LAUNCH MISSION 4"
+
+[node name="BackBtn" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -65.0
+offset_right = 100.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "← BACK TO MAIN MENU"
+
+[node name="MoonModePopup" type="Panel" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -140.0
+offset_right = 220.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/MoonModePopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = -25.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="UI/MoonModePopup/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "SELECT MOON MISSION MODE"
+horizontal_alignment = 1
+
+[node name="AstronautModeBtn" type="Button" parent="UI/MoonModePopup/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "MODE A: ASTRONAUT SURFACE EVA"
+
+[node name="RoverModeBtn" type="Button" parent="UI/MoonModePopup/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "MODE B: ROBOTIC ROVER / LANDER"
+
+[node name="CancelBtn" type="Button" parent="UI/MoonModePopup/VBox"]
+layout_mode = 2
+text = "CANCEL"
